@@ -14,16 +14,8 @@ language = None
 
 voices = engineio.getProperty("voices")
 
-for voice in voices:
-    if voice.name == 'Microsoft Hedda Desktop - German':
-        language = voice.id
-
-if not language:
-    print("Keine deutsche Sprachausgabe -.-!!!")
-    exit(1)
-
 engineio.setProperty("rate", 130)  # Aquí puedes seleccionar la velocidad de la voz
-engineio.setProperty("voice", language)
+engineio.setProperty("voice", voices[0].id)
 
 tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
@@ -37,7 +29,7 @@ while True:
                 print("Sprich...")
                 audio = r.listen(source, timeout=5)
                 print("Danke!")
-                audio_text = r.recognize_google(audio, language='de')
+                audio_text = r.recognize_google(audio, language='en')
             
                 new_user_input_ids = tokenizer.encode(
                     audio_text + tokenizer.eos_token, return_tensors="pt"
