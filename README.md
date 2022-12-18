@@ -13,7 +13,6 @@ Oder ohne Conda:
 
 ### Modifikationen
  - Aktuelle Libraries
- - Deutschsprachig
  - Läuft mit aktuellster Python Version
 
 Viel Spaß :-)
