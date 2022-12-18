@@ -64,6 +64,6 @@ while True:
                     engineio.say(new_text)
                     engineio.runAndWait()
                 except:
-                    engineio.say("Sorry, did not understand you")
+                    engineio.say("Hab dich nicht verstanden")
         except sr.UnknownValueError:
             pass
